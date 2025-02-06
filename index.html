@@ -19,6 +19,79 @@
         .sora-font {
             font-family: "Sora", serif;
         }
+
+        .display-flex {
+            display: flex;
+        }
+
+        .navbar {
+            width: 1200px;
+            height: 60px;
+            align-items: center;
+            justify-content: space-between;
+            /* background-color: bisque; */
+            margin: 0px auto;
+            /* border: 3px solid green; */
+        }
+
+        .part-2>ul>li {
+            list-style: none;
+            margin-right: 30px;
+        }
+
+        .links {
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .menu-bar {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .menu-bar>.line {
+            width: 25px;
+            height: 3px;
+            background-color: #020202;
+        }
+
+        .primary {
+            background-color: rgba(254, 163, 1, 1);
+            font-weight: bold;
+            font-size: 20px;
+            color: white;
+            padding: 18px 36px;
+            border-radius: 20px;
+            border: none;
+        }
+
+        @media screen and (max-width:576px) {
+
+            .scl,
+            .part-2,
+            .part-3 {
+                display: none;
+            }
+
+            .navbar {
+                /* flex-direction: column; */
+                width: 100%;
+
+            }
+
+            .menu-bar {
+                display: flex;
+            }
+
+            hr {
+                width: 98%;
+                /* border-color: #666; */
+                border-color: rgb(0, 0, 0);
+            }
+        }
     </style>
     <script>
         tailwind.config = {
@@ -28,8 +101,8 @@
                         clifford: '#da373d',
                         nature: 'rgba(23, 152, 0, 1)',
                         second: 'rgba(239, 235, 227, 1)',
-                       
-                        
+
+
                     }
                 }
             }
@@ -38,45 +111,35 @@
 </head>
 
 <body class="sora-font">
-    <header class="md:container mx-auto bg-gradient-to-r from-cyan-500 to-blue-500">
-        <div class="navbar bg-base-100 ">
-            <div class="navbar-start ">
-                <a class="btn btn-ghost text-xl"><img src="c2-assets/logo-header.png" alt=""></a>
-                <div class="dropdown ">
-                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h8m-8 6h16" />
-                        </svg>
-                    </div>
-                    <ul tabindex="0"
-                        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                        <li><a>Product</a></li>
-                        <li><a>Service</a></li>
-                        <li><a>Contact Us</a></li>
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                        <i class="fa-solid fa-cart-shopping"></i>
-                        <a class="btn border border-sky-500 bg-white ">Login</a>
-                        <a class="btn bg-nature">Register</a>
-                    </ul>
-                </div>
 
+    <header>
+        <nav class="navbar display-flex ">
+            <div class="part-1 display-flex">
+                <img src="c2-assets/logo-header.png" alt="">
+                <h3 class="scl">SCHOOL</h3>
             </div>
-            <div class="navbar-center hidden lg:flex">
-                <ul class="menu menu-horizontal px-1">
+            <div class="part-2">
+                <ul class="item display-flex">
                     <li><a>Product</a></li>
                     <li><a>Service</a></li>
                     <li><a>Contact Us</a></li>
                 </ul>
             </div>
-            <div class="navbar-end space-x-3 hidden lg:flex">
+            <div class="part-3 space-x-1">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <i class="fa-solid fa-cart-shopping"></i>
                 <a class="btn border border-sky-500 bg-white ">Login</a>
                 <a class="btn bg-nature">Register</a>
             </div>
-        </div>
+            <div class="menu-bar">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+
+            </div>
+
+        </nav>
+        <hr>
     </header>
     <main>
         <section class="bg-gradient-to-t from-gray-50 to-gray-100 ">
@@ -84,15 +147,15 @@
                 <div class="hero-content text-center">
                     <div class="lg:w-4/6 mx-auto ">
                         <div class="space-y-5 ">
-                            <h1 class=" text-4xl font-bold ">Freshness You Can <br>
-                                Count On, Prices You’ll Love!</h1>
+                            <h1 class=" text-4xl font-bold ">Freshness <span class="text-nature">You Can</span> <br>
+                                <span class="text-nature">Count</span> On, Prices You’ll Love!</h1>
                             <p>Shop your daily essentials at unbeatable prices. From fresh produce to pantry staples,
                                 we’ve
                                 got you
                                 covered every day!</p>
                         </div>
                         <div class=" flex items-center justify-center mt-24  ">
-                            <img class="" src="c2-assets/hero-vegetables.png" alt="">
+                            <img class="animate-bounce" src="c2-assets/hero-vegetables.png" alt="">
                         </div>
                     </div>
                 </div>
@@ -284,19 +347,47 @@
                         <div class=" space-y-2">
                             <img src="c2-assets/india-gate-logo.png " alt="" class=" w-[45%]  h-[50%]">
                             <button class="btn bg-blue-600">World’s No.1 Rice</button>
-                            <h1 class=" text-white">Up To <span lass="font-bold text-xl">40% OFF</span></h1>
+                            <h1 class=" text-white">Up To <span class="font-bold ">40% OFF</span></h1>
                         </div>
                         <img src="c2-assets/india-gate-mock-up.png" class=" w-[70%]  h-[88%]  rounded-xl" />
                     </div>
                 </div>
             </div>
         </section>
-       
+
+        <!-- FAQ -->
+
+        <section class="px-4 md:container mx-auto">
+            <h1 class="text-nature text-3xl font-bold mb-10">FAQ (Extra Section)</h1>
+            <div class="collapse collapse-plus bg-base-200">
+                <input type="radio" name="my-accordion-3" checked="checked" />
+                <div class="collapse-title text-xl font-medium">Why Fresh and Natural food is essential?</div>
+                <div class="collapse-content">
+                    <p>Fresh and natural foods are essential because they are rich in nutrients that support your health
+                        and energy levels. They also help to preserve the environment</p>
+                </div>
+            </div>
+            <div class="collapse collapse-plus bg-base-200">
+                <input type="radio" name="my-accordion-3" />
+                <div class="collapse-title text-xl font-medium">Is it important to prevent use of formalin? </div>
+                <div class="collapse-content">
+                    <p>Severe exposure can cause death from throat swelling or from chemical burns to the lungs</p>
+                </div>
+            </div>
+            <div class="collapse collapse-plus bg-base-200">
+                <input type="radio" name="my-accordion-3" />
+                <div class="collapse-title text-xl font-medium">What is the main reason of eating fresh food?</div>
+                <div class="collapse-content">
+                    <p>Many fresh foods are loaded with antioxidants, which help reduce inflammation and lower your risk
+                        of chronic diseases such as heart disease and cancer. </p>
+                </div>
+            </div>
+        </section>
     </main>
     <div class="relative mt-48  ">
         <!-- hero -->
         <section class="absolute px-4  w-3/4 my-20 bg-second -top-56 lg:-top-48 left-16 lg:left-40 rounded-2xl ">
-            <div class="hero  p-3 ">
+            <div class="hero  py-3 ">
                 <div class="hero-content flex-col lg:flex-row">
                     <img src="c2-assets/vegetable-busket.png" class="w-[25%]  h-[30%] rounded-lg " />
                     <div class="space-y-3">
@@ -305,12 +396,12 @@
                             Exclusive training tips, ticks, product deals and more.
                         </p>
                         <input type="text" placeholder="Enter Email " class="w-full h-12 pl-5  rounded-lg"> <br>
-                        <button class="btn btn-primary">Get Started</button>
+                        <button class="btn bg-nature text-white">Subscribe</button>
                     </div>
                 </div>
             </div>
         </section>
-        <div class=" footer bg-nature text-base-content p-10 w-full  " >
+        <div class=" footer bg-nature text-base-content p-10 w-full  ">
             <nav class="mt-64 lg:mt-40 text-white w-2/5  ">
                 <img src="c2-assets/logo-footer.png" alt="">
                 <p>Discover a world of treats, toys, and essentials handpicked for your furry friends</p>
@@ -319,7 +410,7 @@
                 <a class="link link-hover">Product</a>
                 <a class="link link-hover">Service</a>
                 <a class="link link-hover">Contact</a>
-               
+
             </nav>
             <nav class="mt-10 lg:mt-40 text-white ">
                 <h6 class="footer-title">Follow Us</h6>
